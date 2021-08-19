@@ -1,14 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Document</title>
 </head>
+
 <body>
-  <p>This is the skeleton of the project. I have worked on the JS part only. Will continue...</p>
-  
+  <header class="header">
+    <h1 class="header__logo">RPS</h1>
+
+    <div class="header__score-container">
+      <h2 class="header__title">SCORE</h2>
+
+      <div class="header__score">
+        <article>
+          <h3>User</h3>
+          <p class="header__user-score">0</p>
+        </article>
+        <article>
+          <h3>Computer</h3>
+          <p class="header__computer-score">0</p>
+        </article>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="main__options">
+      <h2 class="main__title">Make a choice!</h2>
+      <div class="main__option-container">
+        <div class="main__option">
+          <label for="rock">Rock</label>
+          <button id="rock"><img src="./images/Hand-rock-01.svg" alt="rock"></button>
+        </div>
+        <div class="main__option">
+          <label for="paper">Paper</label>
+          <button id="paper"><img src="./images/Hand-paper-01.svg" altpaperscissors="paper"></button>
+        </div>
+        <div class="main__option">
+          <label for="scissors">Scissors</label>
+          <button id="scissors"><img src="./images/Hand-scissors-01.svg" alt="scissors"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="main__selections">
+      <article>
+        <h2><span class="material-icons">person</span></h2>
+        <p class="main__user"></p>
+      </article>
+      <article>
+        <h2><span class="material-icons">computer</span></h2>
+        <p class="main__computer"></p>
+      </article>
+    </div>
+
+    <div class="main__result"></div>
+  </main>
+
   <script src="./script.js"></script>
 </body>
+
 </html>

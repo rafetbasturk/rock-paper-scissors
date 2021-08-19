@@ -1,4 +1,10 @@
 const arr = ["rock", "paper", "scissors"]
+const playerSelectionDisplay = document.querySelector(".main__user")
+const computerSelectionDisplay = document.querySelector(".main__computer")
+const resultDisplay = document.querySelector(".main__result")
+const scoreDisplay = document.querySelector(".main__score")
+const userScore = document.querySelector(".header__user-score")
+const computerScore = document.querySelector(".header__computer-score")
 
 const computerPlay = () => {
   const randomNum = Math.floor(Math.random() * arr.length)
@@ -7,45 +13,47 @@ const computerPlay = () => {
 
 let playerWin = 0
 let computerWin = 0
+let result = ""
 
 const playRound = (playerSelection, computerSelection) => {
   if (playerSelection === computerSelection) {
-    console.log("It is a tie!")
+    result = "It is a tie!"
   } else if (playerSelection === "rock") {
     if (computerSelection === "paper") {
-      console.log(`You lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`);
       computerWin++
+      result = `You lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`
     } else {
-      console.log(`You win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`)
       playerWin++
+      result = `You win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`
     }
   } else if (playerSelection === "paper") {
     if (computerSelection === "scissors") {
-      console.log(`You lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`);
       computerWin++
+      result = `You lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`
     } else {
-      console.log(`You win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`)
       playerWin++
+      result = `You win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`
     }
   } else if (playerSelection === "scissors") {
     if (computerSelection === "rock") {
-      console.log(`You lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`);
       computerWin++
+      result = `You lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`
     } else {
-      console.log(`You win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`)
       playerWin++
+      result = `You win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`
     }
   }
-
-  console.log(`The player score is ${playerWin} and the computer score is ${computerWin}.`);
 }
 
-const game = (n) => {
-  for (let i = 1; i <= n; i++) {
-    const playerSelection = prompt("Rock, paper or scissors").toLowerCase()
+document.querySelectorAll("button").forEach(el => {
+  el.addEventListener("click", e => {
+    const playerSelection = e.currentTarget.id
     const computerSelection = computerPlay()
+    playerSelectionDisplay.textContent = playerSelection
+    computerSelectionDisplay.textContent = computerSelection
     playRound(playerSelection, computerSelection)
-  }
-}
-
-game(5)
+    resultDisplay.textContent = result
+    userScore.textContent = playerWin
+    computerScore.textContent = computerWin
+  })
+});

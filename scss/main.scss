@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 10px;
+}
+
+body {
+  width: max-content;
+  margin: auto;
+  font-size: 1.6rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+.header {
+  width: 500px;
+  padding: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__score {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  article {
+    text-align: center;
+  }
+}
+
+button {
+  width: 100px;
+  height: 100px;
+}
+
+.main {
+  width: 100%;
+  height: 500px;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+
+  &__options {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__option-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__selections {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  article {
+    text-align: center;
+  }
+
+  .material-icons {
+    font-size: 48px;
+  }
+}
