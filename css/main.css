@@ -9,7 +9,7 @@
 }
 
 body {
-  width: max-content;
+  width: 100%;
   margin: auto;
   font-size: 1.6rem;
 }
@@ -24,6 +24,7 @@ h3 {
 
 .header {
   width: 500px;
+  margin: auto;
   padding: 1.6rem;
   display: flex;
   justify-content: space-between;
@@ -53,7 +54,8 @@ button {
 }
 
 .main {
-  width: 100%;
+  width: 500px;
+  margin: auto;
   height: 500px;
   padding: 20px 0;
   display: flex;
@@ -95,5 +97,37 @@ button {
 
 .main .material-icons {
   font-size: 48px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__message {
+  width: 320px;
+  height: 150px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.modal .material-icons {
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */

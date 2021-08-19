@@ -1,10 +1,12 @@
 const arr = ["rock", "paper", "scissors"]
-const playerSelectionDisplay = document.querySelector(".main__user")
+const playerSelectionDisplay = document.querySelector(".main__player")
 const computerSelectionDisplay = document.querySelector(".main__computer")
 const resultDisplay = document.querySelector(".main__result")
 const scoreDisplay = document.querySelector(".main__score")
-const userScore = document.querySelector(".header__user-score")
+const playerScore = document.querySelector(".header__player-score")
 const computerScore = document.querySelector(".header__computer-score")
+const modal = document.querySelector(".modal")
+const message = document.querySelector(".modal__message")
 
 const computerPlay = () => {
   const randomNum = Math.floor(Math.random() * arr.length)
@@ -53,7 +55,19 @@ document.querySelectorAll("button").forEach(el => {
     computerSelectionDisplay.textContent = computerSelection
     playRound(playerSelection, computerSelection)
     resultDisplay.textContent = result
-    userScore.textContent = playerWin
+    playerScore.textContent = playerWin
     computerScore.textContent = computerWin
+    if (playerWin === 5 || computerWin === 5) {
+      modal.style.display = "flex"
+    }
+
+    if (playerWin === 5) {
+      message.textContent = "Yay! You win."
+    } else {
+      message.textContent = "Oops! You lose."
+    }
   })
 });
+
+document.querySelector(".modal__close").addEventListener("click", () => window.location.reload())
+
